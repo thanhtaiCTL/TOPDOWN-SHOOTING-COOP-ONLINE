@@ -70,7 +70,7 @@ public class PUNConnectControl : MonoBehaviourPunCallbacks
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = numberPlayer;
         roomOptions.EmptyRoomTtl = 10;
-        PhotonNetwork.CreateRoom("", roomOptions);
+        PhotonNetwork.CreateRoom("K2-2018", roomOptions);
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)
