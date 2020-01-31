@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7624444e93f87f547b05507ffecf9985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberPlayer: 1
+  numberPlayer: 2
   matchView: {fileID: 4479057288410822520}
 --- !u!1 &7630952048559456836
 GameObject:
