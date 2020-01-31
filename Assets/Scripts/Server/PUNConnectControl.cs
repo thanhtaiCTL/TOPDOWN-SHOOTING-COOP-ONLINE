@@ -46,22 +46,26 @@ public class PUNConnectControl : MonoBehaviourPunCallbacks
     public override void OnConnected()
     {
         matchView.SetInfo("OnConnected()");
+        Debug.LogError("OnConnected");
     }
 
     public override void OnConnectedToMaster()
     {
         matchView.SetInfo("OnConnectedToMaster()");
         Connect();
+        Debug.LogError("OnConnectedToMaster");
     }
 
     public override void OnCreatedRoom()
     {
         matchView.SetInfo("OnCreatedRoom");
+        Debug.LogError("OnCreatedRoom");
     }
 
     public override void OnJoinedRoom()
     {
         matchView.SetInfo("OnJoinedRoom");
+        Debug.LogError("OnJoinedRoom");
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -71,22 +75,26 @@ public class PUNConnectControl : MonoBehaviourPunCallbacks
         roomOptions.MaxPlayers = numberPlayer;
         roomOptions.EmptyRoomTtl = 10;
         PhotonNetwork.CreateRoom("K2-2018", roomOptions);
+        Debug.LogError("OnJoinRandomFailed");
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         matchView.SetInfo("OnCreateRoomFailed()");
+        Debug.LogError("OnCreateRoomFailed");
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         matchView.SetInfo("OnJoinRoomFailed");
+        Debug.LogError("OnJoinRoomFailed");
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         if(PhotonNetwork.IsMasterClient)
         {
+            Debug.LogError("@@@@@@OnPlayerEnteredRoom Count: " + PhotonNetwork.CurrentRoom.PlayerCount);
             matchView.SetInfo("@@@@@@OnPlayerEnteredRoom Count: " + PhotonNetwork.CurrentRoom.PlayerCount);
             if (PhotonNetwork.CurrentRoom.PlayerCount >= numberPlayer)
                 PhotonNetwork.LoadLevel("InGame");
@@ -94,16 +102,19 @@ public class PUNConnectControl : MonoBehaviourPunCallbacks
         else
         {
             matchView.SetInfo("OnPlayerEnteredRoom Count: " + PhotonNetwork.CurrentRoom.PlayerCount);
+            Debug.LogError("OnPlayerEnteredRoom Count: " + PhotonNetwork.CurrentRoom.PlayerCount);
         }
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         matchView.SetInfo("OnPlayerLeftRoom Count: " + PhotonNetwork.CurrentRoom.PlayerCount);
+        Debug.LogError("OnPlayerLeftRoom Count: " + PhotonNetwork.CurrentRoom.PlayerCount);
     }
 
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
         matchView.SetInfo("-------OnMasterClientSwitched---------");
+        Debug.LogError("------ - OnMasterClientSwitched-------- - ");
     }
 }
