@@ -8,7 +8,7 @@ public class PUNConnectControl : MonoBehaviourPunCallbacks
 {
     private string gameVersion = "1";
 
-    public byte numberPlayer = 1;
+    public byte numberPlayer = 2;
     public MatchView matchView;
 
     private void Start()
